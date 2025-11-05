@@ -1,10 +1,17 @@
 import { useRoute } from "wouter";
 import { Calendar, User, ArrowLeft, Share2 } from "lucide-react";
 import { Link } from "wouter";
+import { marked } from "marked";
 import Seo from "@/components/Seo";
 import Header from "@/components/Header";
 import { getPostBySlug } from "@/data/blogPosts";
 import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
+
+// Configurar marked para renderizar corretamente
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+});
 
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
@@ -119,8 +126,12 @@ export default function BlogPost() {
                 prose-ul:my-6 prose-ul:text-muted-foreground
                 prose-li:my-2
                 prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+                prose-table:w-full prose-table:border-collapse
+                prose-th:border prose-th:border-border prose-th:bg-accent/10 prose-th:p-3 prose-th:text-left
+                prose-td:border prose-td:border-border prose-td:p-3
+                prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1 prose-code:rounded
               "
-              dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }}
+              dangerouslySetInnerHTML={{ __html: marked(post.content) }}
             />
           </div>
         </section>
