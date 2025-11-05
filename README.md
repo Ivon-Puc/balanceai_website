@@ -161,22 +161,28 @@ Os arquivos otimizados estarão em `dist/`
 
 1. Faça push do código para GitHub
 2. Conecte o repositório no [Vercel](https://vercel.com)
-3. Vercel detectará automaticamente o projeto Vite
+3. Configure as variáveis de ambiente em **Settings → Environment Variables**:
+
+   **Necessárias:**
+   - `VITE_CLOUDINARY_CLOUD_NAME` = `ivon-matos-analista`
+   
+   **Opcionais (Branding):**
+   - `VITE_APP_TITLE` = `BalanceAI - IA para Atendimento`
+   - `VITE_APP_LOGO` = `/favicon.png`
+   
+   **Opcionais (Analytics):**
+   - `VITE_ANALYTICS_ENDPOINT` = URL do seu Umami/Analytics
+   - `VITE_ANALYTICS_WEBSITE_ID` = UUID do seu site
+   
+   **Avançadas (se necessário):**
+   - `VITE_OAUTH_PORTAL_URL` = URL de autenticação externa
+   - `VITE_APP_ID` = ID da aplicação
+   - `VITE_FRONTEND_FORGE_API_KEY` = Chave para Forge API
+   - `VITE_FRONTEND_FORGE_API_URL` = URL da Forge API
+
 4. Clique em "Deploy"
 
-#### Variáveis de Ambiente (Cloudinary)
-
-Para usar imagens otimizadas do Cloudinary no front-end sem expor segredos:
-
-1. Crie `client/.env.local` baseado em `client/.env.example` com:
-
-```env
-VITE_CLOUDINARY_CLOUD_NAME=ivon-matos-analista
-```
-
-2. Na Vercel, adicione a mesma variável em Settings → Environment Variables.
-
-Importante: não adicione API Secret/Key do Cloudinary no front-end. Uploads devem ser assinados no backend ou via upload preset restrito.
+**Importante:** Nunca exponha API Secret do Cloudinary no front-end. Apenas `VITE_CLOUDINARY_CLOUD_NAME` (não é segredo). Uploads devem ser assinados no backend.
 
 ### Deploy em outros serviços
 
@@ -190,14 +196,26 @@ O site é um SPA estático e pode ser deployado em qualquer serviço que suporte
 
 ## 📝 Variáveis de Ambiente
 
-Crie um arquivo `.env.local` na raiz do projeto (opcional):
+### Desenvolvimento Local
+
+Crie `client/.env.local` baseado em `client/.env.example`:
 
 ```env
-VITE_APP_TITLE=BalanceAI
-VITE_APP_LOGO=logo.svg
-# Cloudinary (opcional)
+# Necessário
 VITE_CLOUDINARY_CLOUD_NAME=ivon-matos-analista
+
+# Opcional (Branding)
+VITE_APP_TITLE=BalanceAI - IA para Atendimento
+VITE_APP_LOGO=/favicon.png
+
+# Opcional (Analytics)
+# VITE_ANALYTICS_ENDPOINT=https://analytics.seudominio.com
+# VITE_ANALYTICS_WEBSITE_ID=00000000-0000-0000-0000-000000000000
 ```
+
+### Produção (Vercel)
+
+Configure em **Settings → Environment Variables** as mesmas chaves listadas acima.
 
 ## 🧪 Testes
 
