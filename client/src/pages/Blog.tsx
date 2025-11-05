@@ -95,7 +95,7 @@ export default function Blog() {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
           <a href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-            <div className="w-8 h-8 bg-gradient-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-linear-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">BA</span>
             </div>
             <span className="font-bold text-lg text-accent">BalanceAI</span>
@@ -189,7 +189,7 @@ export default function Blog() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 border-t border-border bg-gradient-to-r from-accent/10 to-secondary/10">
+  <section className="py-16 border-t border-border bg-linear-to-r from-accent/10 to-secondary/10">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-accent mb-4">Quer publicar um artigo?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

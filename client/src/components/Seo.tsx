@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { defaultOgImage } from "@/lib/cloudinary";
 
 type SeoProps = {
   title: string;
@@ -10,8 +11,7 @@ type SeoProps = {
 };
 
 const SITE_URL = typeof window !== "undefined" ? window.location.origin : "https://balanceai.com.br";
-const DEFAULT_IMAGE = 
-  "https://res.cloudinary.com/demo/image/upload/c_fill,w_1200,h_630/v1700000000/og-default.jpg";
+const DEFAULT_IMAGE = defaultOgImage("BalanceAI: IA para Atendimento");
 
 export function Seo({ title, description, path = "/", image = DEFAULT_IMAGE, type = "website", jsonLd = [] }: SeoProps) {
   useEffect(() => {

@@ -104,7 +104,7 @@ export default function FAQ() {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
           <a href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-            <div className="w-8 h-8 bg-gradient-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-linear-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">BA</span>
             </div>
             <span className="font-bold text-lg text-accent">BalanceAI</span>
@@ -175,7 +175,7 @@ export default function FAQ() {
                     <h3 className="text-lg font-semibold text-foreground">{item.question}</h3>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-accent flex-shrink-0 ml-4 transition-transform ${
+                    className={`w-5 h-5 text-accent shrink-0 ml-4 transition-transform ${
                       expandedId === item.id ? "rotate-180" : ""
                     }`}
                   />
@@ -193,7 +193,7 @@ export default function FAQ() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 border-t border-border bg-gradient-to-r from-accent/10 to-secondary/10">
+  <section className="py-16 border-t border-border bg-linear-to-r from-accent/10 to-secondary/10">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-accent mb-4">Não encontrou sua resposta?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

@@ -9,6 +9,7 @@ import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
 import Contato from "./pages/Contato";
 import Simulador from "./pages/Simulador";
+import WhatsAppFAB from "./components/WhatsAppFAB";
 
 function Router() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <WhatsAppFAB />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

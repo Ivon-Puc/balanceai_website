@@ -46,7 +46,7 @@ export default function Home() {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-linear-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">BA</span>
             </div>
             <span className="font-bold text-lg text-accent">BalanceAI</span>
@@ -74,7 +74,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex-1 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/30 pointer-events-none" />
+  <div className="absolute inset-0 bg-linear-to-br from-background via-background to-card/30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
         
@@ -193,7 +193,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-1">
+                <div className="shrink-0 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-1">
                   <CheckCircle className="w-4 h-4 text-accent" />
                 </div>
                 <div>
@@ -203,7 +203,7 @@ export default function Home() {
               </div>
               
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-1">
+                <div className="shrink-0 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-1">
                   <CheckCircle className="w-4 h-4 text-accent" />
                 </div>
                 <div>
@@ -213,7 +213,7 @@ export default function Home() {
               </div>
               
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-1">
+                <div className="shrink-0 w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center mt-1">
                   <CheckCircle className="w-4 h-4 text-accent" />
                 </div>
                 <div>
@@ -223,7 +223,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-accent/10 to-secondary/10 rounded-lg p-8 border border-border">
+            <div className="bg-linear-to-br from-accent/10 to-secondary/10 rounded-lg p-8 border border-border">
               <Shield className="w-16 h-16 text-accent mb-4" />
               <h3 className="text-2xl font-bold text-foreground mb-4">Auto-Hospedada</h3>
               <p className="text-muted-foreground mb-6">
@@ -297,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-border bg-gradient-to-r from-accent/10 to-secondary/10">
+      <section className="py-20 border-t border-border bg-linear-to-r from-accent/10 to-secondary/10">
         <div className="container text-center">
           <h2 className="text-4xl font-bold text-accent mb-4">Próximos Passos</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
