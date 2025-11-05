@@ -15,7 +15,7 @@ export default function Enterprise() {
         type="website"
       />
 
-      <Header />
+      <Header currentPage="enterprise" />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 border-b border-border">

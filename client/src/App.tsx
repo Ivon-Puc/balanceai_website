@@ -16,6 +16,15 @@ const Contato = lazy(() => import("./pages/Contato"));
 const Simulador = lazy(() => import("./pages/Simulador"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Páginas verticais e Enterprise
+const Enterprise = lazy(() => import("./pages/Enterprise"));
+const Advocacia = lazy(() => import("./pages/Advocacia"));
+const Contabilidade = lazy(() => import("./pages/Contabilidade"));
+const LojasDeCarros = lazy(() => import("./pages/LojasDeCarros"));
+const Clinicas = lazy(() => import("./pages/Clinicas"));
+const Imobiliarias = lazy(() => import("./pages/Imobiliarias"));
+const Academias = lazy(() => import("./pages/Academias"));
+
 // Loading component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -28,6 +37,13 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path={"/"} component={Home} />
+        <Route path={"/enterprise"} component={Enterprise} />
+        <Route path={"/advocacia"} component={Advocacia} />
+        <Route path={"/contabilidade"} component={Contabilidade} />
+        <Route path={"/lojas-de-carros"} component={LojasDeCarros} />
+        <Route path={"/clinicas"} component={Clinicas} />
+        <Route path={"/imobiliarias"} component={Imobiliarias} />
+        <Route path={"/academias"} component={Academias} />
         <Route path={"/blog"} component={Blog} />
         <Route path={"/blog/:slug"} component={BlogPost} />
         <Route path={"/faq"} component={FAQ} />

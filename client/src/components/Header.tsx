@@ -1,11 +1,29 @@
-import { Phone } from "lucide-react";
+import { Phone, ChevronDown } from "lucide-react";
 import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
+import { useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
-  currentPage?: "home" | "blog" | "faq" | "simulador" | "contato";
+  currentPage?: "home" | "blog" | "faq" | "simulador" | "contato" | "enterprise" | "advocacia" | "contabilidade" | "lojas-de-carros" | "clinicas" | "imobiliarias" | "academias";
 }
 
+const verticals = [
+  { href: "/advocacia", label: "Para Advocacia" },
+  { href: "/contabilidade", label: "Para Contabilidade" },
+  { href: "/lojas-de-carros", label: "Para Lojas de Carros" },
+  { href: "/clinicas", label: "Para Clínicas" },
+  { href: "/imobiliarias", label: "Para Imobiliárias" },
+  { href: "/academias", label: "Para Academias" }
+];
+
 export default function Header({ currentPage = "home" }: HeaderProps) {
+  const isVerticalPage = ["advocacia", "contabilidade", "lojas-de-carros", "clinicas", "imobiliarias", "academias"].includes(currentPage);
+  
   return (
     <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="container flex items-center justify-between h-16">
@@ -22,6 +40,32 @@ export default function Header({ currentPage = "home" }: HeaderProps) {
           >
             Home
           </a>
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger className={`inline-flex items-center gap-1 text-sm hover:text-accent transition ${isVerticalPage ? "font-semibold text-accent" : ""}`}>
+              Soluções <ChevronDown className="w-3 h-3" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              {verticals.map((vertical) => (
+                <DropdownMenuItem key={vertical.href} asChild>
+                  <a 
+                    href={vertical.href} 
+                    className="cursor-pointer w-full"
+                  >
+                    {vertical.label}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <a 
+            href="/enterprise" 
+            className={`text-sm hover:text-accent transition ${currentPage === "enterprise" ? "font-semibold text-accent" : ""}`}
+          >
+            Enterprise
+          </a>
+          
           <a 
             href="/blog" 
             className={`text-sm hover:text-accent transition ${currentPage === "blog" ? "font-semibold text-accent" : ""}`}
