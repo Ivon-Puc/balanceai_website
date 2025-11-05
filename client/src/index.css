@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: rgb(21 154 156); /* #159A9C - Verde-azulado */
+  --primary-foreground: rgb(255 255 255); /* Branco */
+  --sidebar-primary: rgb(21 154 156);
+  --sidebar-primary-foreground: rgb(255 255 255);
+  --chart-1: rgb(21 154 156);
+  --chart-2: rgb(16 185 129);
+  --chart-3: rgb(245 158 11);
+  --chart-4: rgb(21 154 156);
+  --chart-5: rgb(59 130 246);
+  --radius: 0.65rem;
+  --background: rgb(255 255 255); /* Branco */
+  --foreground: rgb(31 41 55); /* Cinza 900 */
+  --card: rgb(249 250 251); /* Cinza 50 */
+  --card-foreground: rgb(31 41 55); /* Cinza 900 */
+  --popover: rgb(249 250 251); /* Cinza 50 */
+  --popover-foreground: rgb(31 41 55); /* Cinza 900 */
+  --secondary: rgb(222 239 231); /* #DEEFE7 - Mint */
+  --secondary-foreground: rgb(21 154 156); /* Verde-azulado */
+  --muted: rgb(156 163 175); /* Cinza 400 */
+  --muted-foreground: rgb(107 114 128); /* Cinza 500 */
+  --accent: rgb(21 154 156); /* #159A9C - Verde-azulado */
+  --accent-foreground: rgb(255 255 255); /* Branco */
+  --destructive: rgb(239 68 68); /* #ef4444 - Erro */
+  --destructive-foreground: rgb(255 255 255); /* Branco */
+  --border: rgb(229 231 235); /* Cinza 200 */
+  --input: rgb(243 244 246); /* Cinza 100 */
+  --ring: rgb(21 154 156); /* Verde-azulado */
+  --sidebar: rgb(249 250 251); /* Cinza 50 */
+  --sidebar-foreground: rgb(31 41 55); /* Cinza 900 */
+  --sidebar-accent: rgb(21 154 156); /* Verde-azulado */
+  --sidebar-accent-foreground: rgb(255 255 255); /* Branco */
+  --sidebar-border: rgb(229 231 235); /* Cinza 200 */
+  --sidebar-ring: rgb(21 154 156); /* Verde-azulado */
+  --success: rgb(16 185 129); /* #10b981 - Sucesso */
+  --warning: rgb(245 158 11); /* #f59e0b - Aviso */
+  --info: rgb(59 130 246); /* #3b82f6 - Informações */
+}
+
+.dark {
+  --primary: rgb(21 154 156); /* #159A9C - Verde-azulado */
+  --primary-foreground: rgb(255 255 255); /* Branco */
+  --sidebar-primary: rgb(21 154 156);
+  --sidebar-primary-foreground: rgb(255 255 255);
+  --background: rgb(17 24 39); /* Cinza 900 escuro */
+  --foreground: rgb(243 244 246); /* Cinza 100 */
+  --card: rgb(31 41 55); /* Cinza 800 */
+  --card-foreground: rgb(243 244 246); /* Cinza 100 */
+  --popover: rgb(31 41 55); /* Cinza 800 */
+  --popover-foreground: rgb(243 244 246); /* Cinza 100 */
+  --secondary: rgb(222 239 231); /* #DEEFE7 - Mint */
+  --secondary-foreground: rgb(21 154 156); /* Verde-azulado */
+  --muted: rgb(107 114 128); /* Cinza 500 */
+  --muted-foreground: rgb(156 163 175); /* Cinza 400 */
+  --accent: rgb(21 154 156); /* #159A9C - Verde-azulado */
+  --accent-foreground: rgb(255 255 255); /* Branco */
+  --destructive: rgb(239 68 68); /* #ef4444 - Erro */
+  --destructive-foreground: rgb(255 255 255); /* Branco */
+  --border: rgb(55 65 81); /* Cinza 700 */
+  --input: rgb(55 65 81); /* Cinza 700 */
+  --ring: rgb(21 154 156); /* Verde-azulado */
+  --chart-1: rgb(21 154 156);
+  --chart-2: rgb(16 185 129);
+  --chart-3: rgb(245 158 11);
+  --chart-4: rgb(21 154 156);
+  --chart-5: rgb(59 130 246);
+  --sidebar: rgb(31 41 55); /* Cinza 800 */
+  --sidebar-foreground: rgb(243 244 246); /* Cinza 100 */
+  --sidebar-accent: rgb(21 154 156); /* Verde-azulado */
+  --sidebar-accent-foreground: rgb(255 255 255); /* Branco */
+  --sidebar-border: rgb(55 65 81); /* Cinza 700 */
+  --sidebar-ring: rgb(21 154 156); /* Verde-azulado */
+  --success: rgb(16 185 129); /* #10b981 - Sucesso */
+  --warning: rgb(245 158 11); /* #f59e0b - Aviso */
+  --info: rgb(59 130 246); /* #3b82f6 - Informações */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
