@@ -118,22 +118,23 @@ export default function BlogPost() {
             <div 
               className="prose prose-lg max-w-none
                 prose-headings:text-foreground prose-headings:font-bold
-                prose-h1:text-4xl prose-h1:mt-16 prose-h1:mb-8 prose-h1:text-accent
-                prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:pt-8
-                prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-5 prose-h3:pt-4
-                prose-h4:text-xl prose-h4:mt-10 prose-h4:mb-4
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6 prose-p:mt-4
-                prose-strong:text-accent prose-strong:font-semibold
-                prose-ul:my-6 prose-ul:text-muted-foreground
-                prose-ol:my-6 prose-ol:text-muted-foreground
-                prose-li:my-3 prose-li:leading-relaxed
+                prose-h1:text-4xl prose-h1:mt-16 prose-h1:mb-10 prose-h1:text-accent
+                prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-10 prose-h2:pt-8 prose-h2:border-b prose-h2:border-border
+                prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-8 prose-h3:pt-6 prose-h3:border-b prose-h3:border-border
+                prose-h4:text-xl prose-h4:mt-10 prose-h4:mb-6
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-8 prose-p:mt-6
+                prose-strong:text-accent prose-strong:font-semibold prose-strong:block prose-strong:mb-4 prose-strong:mt-6
+                prose-b:text-accent prose-b:font-semibold prose-b:block prose-b:mb-4 prose-b:mt-6
+                prose-ul:my-8 prose-ul:text-muted-foreground
+                prose-ol:my-8 prose-ol:text-muted-foreground
+                prose-li:my-4 prose-li:leading-relaxed
                 prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                prose-table:w-full prose-table:border-collapse prose-table:my-8
+                prose-table:w-full prose-table:border-collapse prose-table:my-10
                 prose-th:border prose-th:border-border prose-th:bg-accent/10 prose-th:p-3 prose-th:text-left prose-th:font-semibold
                 prose-td:border prose-td:border-border prose-td:p-3
                 prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-                prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-6
-                prose-hr:my-12 prose-hr:border-border
+                prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8
+                prose-hr:my-16 prose-hr:border-border
               "
               dangerouslySetInnerHTML={{ __html: marked(post.content) }}
             />

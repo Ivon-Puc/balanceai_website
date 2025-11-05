@@ -312,21 +312,26 @@ Nenhuma API de IA pública (ChatGPT, Gemini, Claude) atende esses requisitos par
 4. RAG busca em base local
 5. Resposta volta pelo mesmo caminho
 
+
 **Resultado:** Zero bytes de dados transitam por EUA, Europa ou China.
+
+<br />
 
 ## Comparação: ChatGPT vs IA Auto-Hospedada
 
-| Critério | ChatGPT/Gemini | BalanceAI (Auto-Hospedado) |
-|----------|----------------|---------------------------|
-| **Onde dados ficam?** | Servidor OpenAI (EUA) | Seu servidor (Brasil) |
-| **Quem tem acesso?** | OpenAI + parceiros | Apenas você |
-| **Dados treinam IA?** | Sim (por 30 dias mínimo) | Não, nunca |
-| **Conformidade LGPD** | ❌ Requer DPO + consentimento explícito | ✅ Completo |
-| **Conformidade HIPAA** | ❌ (sem BAA no plano padrão) | ✅ Completo |
-| **Sigilo Profissional** | ❌ Viola código OAB | ✅ Mantém sigilo |
-| **Custo por conversa** | ~$0.002 USD (+ taxa API) | R$ 0,01 (fixo) |
-| **Funciona offline?** | ❌ Requer internet | ✅ Sim |
-| **Auditoria completa** | ❌ Logs limitados | ✅ Full logs |
+| Critério                  | ChatGPT/Gemini                              | BalanceAI (Auto-Hospedado)         |
+|---------------------------|---------------------------------------------|------------------------------------|
+| Onde dados ficam?         | Servidor OpenAI (EUA)                       | Seu servidor (Brasil)              |
+| Quem tem acesso?          | OpenAI + parceiros                          | Apenas você                        |
+| Dados treinam IA?         | Sim (por 30 dias mínimo)                    | Não, nunca                         |
+| Conformidade LGPD         | ❌ Requer DPO + consentimento explícito      | ✅ Completo                         |
+| Conformidade HIPAA        | ❌ (sem BAA no plano padrão)                 | ✅ Completo                         |
+| Sigilo Profissional       | ❌ Viola código OAB                         | ✅ Mantém sigilo                    |
+| Custo por conversa        | ~$0.002 USD (+ taxa API)                    | R$ 0,01 (fixo)                     |
+| Funciona offline?         | ❌ Requer internet                          | ✅ Sim                              |
+| Auditoria completa        | ❌ Logs limitados                           | ✅ Full logs                        |
+
+<br />
 
 ## Setores Críticos que Exigem Soberania
 
