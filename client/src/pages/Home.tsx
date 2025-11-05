@@ -63,13 +63,13 @@ export default function Home() {
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold text-accent leading-tight max-w-4xl">
-            Atendimento Inteligente com IA: Automatize 80% das Consultas 24/7
+            O Cérebro de IA que Conecta Seu Atendimento
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            O BalanceAI é uma plataforma de IA multimodal que conecta WhatsApp, site e telefone em um único agente inteligente. 
-            Diferente de chatbots tradicionais, nossa tecnologia RAG lê documentos, ouve gravações e vê imagens para responder 
-            com contexto completo do histórico do cliente.
+            Plataforma de atendimento com IA e <strong className="text-accent">soberania total de dados</strong>. 
+            Automatize 80% das consultas via WhatsApp, site e telefone mantendo 100% de conformidade com LGPD. 
+            Seus dados permanecem no Brasil, sob seu controle, sem trânsito por servidores estrangeiros.
           </p>
           
           <div className="flex flex-col items-center gap-4">
@@ -676,7 +676,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Starter Plan */}
             <div className="p-8 bg-background border border-border rounded-lg hover:border-accent/50 transition">
               <h3 className="text-2xl font-bold mb-2 text-foreground">Starter</h3>
@@ -687,23 +687,27 @@ export default function Home() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Até 1.000 conversas/mês</span>
+                  <span>3 usuários</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>1 canal (WhatsApp ou Web)</span>
+                  <span>500 atendimentos/mês</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>RAG básico (FAQ)</span>
+                  <span>1 WhatsApp conectado</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Suporte por email</span>
+                  <span>Chatbot básico IA</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Relatórios básicos</span>
+                  <span>CRM simples</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  <span>Suporte e-mail</span>
                 </li>
               </ul>
               <a
@@ -713,7 +717,7 @@ export default function Home() {
                 className="block"
               >
                 <Button className="w-full" variant="outline">
-                  Começar Teste Grátis
+                  Teste Grátis
                 </Button>
               </a>
             </div>
@@ -725,33 +729,33 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold mb-2 text-foreground">Professional</h3>
               <div className="mb-6">
-                <div className="text-4xl font-bold text-accent">R$ 749</div>
+                <div className="text-4xl font-bold text-accent">R$ 599</div>
                 <div className="text-sm text-muted-foreground">/mês</div>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Até 5.000 conversas/mês</span>
+                  <span>10 usuários</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>3 canais integrados</span>
+                  <span>2.000 atendimentos/mês</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>RAG Multimodal completo</span>
+                  <span>2 WhatsApps conectados</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Suporte prioritário (24/7)</span>
+                  <span>IA Generativa completa</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Relatórios avançados + Analytics</span>
+                  <span>CRM completo + API</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Workflows personalizados</span>
+                  <span>Suporte prioritário</span>
                 </li>
               </ul>
               <a
@@ -761,55 +765,22 @@ export default function Home() {
                 className="block"
               >
                 <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                  Agendar Demo
+                  Começar Agora
                 </Button>
               </a>
             </div>
-            
-            {/* Enterprise Plan */}
-            <div className="p-8 bg-background border border-border rounded-lg hover:border-accent/50 transition">
-              <h3 className="text-2xl font-bold mb-2 text-foreground">Enterprise</h3>
-              <div className="mb-6">
-                <div className="text-4xl font-bold text-accent">Custom</div>
-                <div className="text-sm text-muted-foreground">sob consulta</div>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Conversas ilimitadas</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Todos os canais</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Auto-hospedagem dedicada</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>SLA 99.9% garantido</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Gerente de conta dedicado</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span>Integrações customizadas</span>
-                </li>
-              </ul>
-              <a
-                href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Quero saber mais sobre o plano Enterprise do BalanceAI.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Button className="w-full" variant="outline">
-                  Falar com Vendas
-                </Button>
-              </a>
-            </div>
+          </div>
+
+          {/* Enterprise CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground mb-4">
+              Precisa de mais de 2.000 atendimentos ou recursos enterprise?
+            </p>
+            <Link href="/enterprise">
+              <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10">
+                Ver Plano Enterprise →
+              </Button>
+            </Link>
           </div>
 
           {/* Pricing FAQ */}
