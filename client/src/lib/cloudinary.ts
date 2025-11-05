@@ -33,17 +33,8 @@ export function cld(publicId: string, opts: CldOptions = {}) {
     : `${prefix}/${publicId}`;
 }
 
-export function defaultOgImage(title = "BalanceAI") {
-  const cn = CLOUD_NAME;
-  if (!cn) {
-    return "https://res.cloudinary.com/demo/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1700000000/og-default.jpg";
-  }
-  // Base: a simple 1200x630 background with brand color and title overlay
-  const bg = "b_rgb:5F94D9"; // brand primary
-  const text = encodeURIComponent(title);
-  const overlay = `l_text:Arial_64_bold:${text},co_rgb:ffffff`;
-  // position overlay roughly centered
-  const gravity = "g_center";
-  const transform = `c_fill,w_1200,h_630,q_auto,f_auto,${bg}/${overlay},${gravity}`;
-  return `https://res.cloudinary.com/${cn}/image/upload/${transform}/v1/balanceai/og_base.png`;
+export function defaultOgImage(_title = "BalanceAI") {
+  // Para confiabilidade, usamos uma imagem padrão pública.
+  // Quando houver um asset og_base no Cloudinary, podemos trocar aqui.
+  return "https://res.cloudinary.com/demo/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1700000000/og-default.jpg";
 }

@@ -164,6 +164,20 @@ Os arquivos otimizados estarão em `dist/`
 3. Vercel detectará automaticamente o projeto Vite
 4. Clique em "Deploy"
 
+#### Variáveis de Ambiente (Cloudinary)
+
+Para usar imagens otimizadas do Cloudinary no front-end sem expor segredos:
+
+1. Crie `client/.env.local` baseado em `client/.env.example` com:
+
+```env
+VITE_CLOUDINARY_CLOUD_NAME=ivon-matos-analista
+```
+
+2. Na Vercel, adicione a mesma variável em Settings → Environment Variables.
+
+Importante: não adicione API Secret/Key do Cloudinary no front-end. Uploads devem ser assinados no backend ou via upload preset restrito.
+
 ### Deploy em outros serviços
 
 O site é um SPA estático e pode ser deployado em qualquer serviço que suporte hosting estático:
@@ -181,6 +195,8 @@ Crie um arquivo `.env.local` na raiz do projeto (opcional):
 ```env
 VITE_APP_TITLE=BalanceAI
 VITE_APP_LOGO=logo.svg
+# Cloudinary (opcional)
+VITE_CLOUDINARY_CLOUD_NAME=ivon-matos-analista
 ```
 
 ## 🧪 Testes
