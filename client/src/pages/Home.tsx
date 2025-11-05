@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Database, Cog, Shield, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, Zap, Database, Cog, Shield, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import Seo from "@/components/Seo";
+import Header from "@/components/Header";
 import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
 
 export default function Home() {
@@ -43,34 +44,7 @@ export default function Home() {
         ]}
       />
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-linear-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BA</span>
-            </div>
-            <span className="font-bold text-lg text-accent">BalanceAI</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-4">
-            <a href="/#solucao" className="text-sm hover:text-accent transition">Solução</a>
-            <a href="/#diferenciais" className="text-sm hover:text-accent transition">Diferenciais</a>
-            <a href="/#investimento" className="text-sm hover:text-accent transition">Investimento</a>
-            <a href="/blog" className="text-sm hover:text-accent transition">Blog</a>
-            <a href="/faq" className="text-sm hover:text-accent transition">FAQ</a>
-            <a href="/simulador" className="text-sm hover:text-accent transition">Simulador</a>
-            <a
-              href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Gostaria de saber mais sobre a BalanceAI.")}
-              className="inline-flex items-center gap-2 bg-[#25D366] text-white hover:opacity-90 px-3 py-2 rounded-lg text-sm font-medium transition"
-              aria-label="WhatsApp"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Phone className="w-4 h-4" /> WhatsApp
-            </a>
-            <a href="/contato" className="bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-2 rounded-lg text-sm font-medium transition">Contato</a>
-          </nav>
-        </div>
-      </header>
+      <Header currentPage="home" />
 
       {/* Hero Section */}
       <section className="flex-1 relative overflow-hidden">

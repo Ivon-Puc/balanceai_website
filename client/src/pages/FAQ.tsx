@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Seo from "@/components/Seo";
+import Header from "@/components/Header";
 import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
 
 interface FAQItem {
@@ -100,28 +101,9 @@ export default function FAQ() {
         path="/faq"
         type="website"
       />
+
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container flex items-center justify-between h-16">
-          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-            <div className="w-8 h-8 bg-linear-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BA</span>
-            </div>
-            <span className="font-bold text-lg text-accent">BalanceAI</span>
-          </a>
-          <nav className="hidden md:flex items-center gap-4">
-            <a href="/" className="text-sm hover:text-accent transition">Home</a>
-            <a href="/#faq" className="text-sm hover:text-accent transition font-semibold text-accent">FAQ</a>
-            <a
-              href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Tenho uma dúvida sobre a BalanceAI.")}
-              className="text-sm px-3 py-1.5 rounded-lg bg-[#25D366] text-white hover:opacity-90 transition"
-              target="_blank"
-              rel="noopener noreferrer"
-            >WhatsApp</a>
-            <a href="/contato" className="text-sm hover:text-accent transition">Contato</a>
-          </nav>
-        </div>
-      </header>
+      <Header currentPage="faq" />
 
       {/* Hero Section */}
       <section className="py-16 border-b border-border relative overflow-hidden">
