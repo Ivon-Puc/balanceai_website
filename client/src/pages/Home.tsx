@@ -63,11 +63,13 @@ export default function Home() {
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold text-accent leading-tight max-w-4xl">
-            O Cérebro de IA que Conecta
+            Atendimento Inteligente com IA: Automatize 80% das Consultas 24/7
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Uma plataforma de inteligência de atendimento que lê, ouve e entende todo o histórico do seu cliente, 24/7. Não é apenas um chatbot, é um agente de vendas e suporte completo.
+            O BalanceAI é uma plataforma de IA multimodal que conecta WhatsApp, site e telefone em um único agente inteligente. 
+            Diferente de chatbots tradicionais, nossa tecnologia RAG lê documentos, ouve gravações e vê imagens para responder 
+            com contexto completo do histórico do cliente.
           </p>
           
           <div className="flex flex-col items-center gap-4">
@@ -225,9 +227,9 @@ export default function Home() {
       <section id="solucao" className="py-20 border-t border-border bg-card/30">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-accent mb-4">A Solução BalanceAI</h2>
+            <h2 className="text-4xl font-bold text-accent mb-4">Como Funciona a Plataforma de IA para Atendimento?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Uma plataforma completa que se conecta a todos os seus canais de atendimento
+              O BalanceAI integra WhatsApp, website, telefone e email em um único agente inteligente com memória completa do cliente
             </p>
           </div>
           
@@ -237,11 +239,12 @@ export default function Home() {
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Resposta Imediata</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">Qual o Tempo de Resposta da IA?</h3>
               <p className="text-muted-foreground mb-4">
-                Gerencia 80% das consultas comuns, qualifica leads e agenda reuniões automaticamente.
+                Menos de 10 segundos. O BalanceAI responde instantaneamente 80% das consultas comuns, qualifica leads 
+                em tempo real e agenda reuniões automaticamente via WhatsApp ou site, eliminando filas de espera.
               </p>
-              <div className="text-accent font-semibold text-sm">80% de Automação</div>
+              <div className="text-accent font-semibold text-sm">Resposta em &lt; 10 segundos</div>
             </div>
             
             {/* Feature 2 */}
@@ -249,11 +252,13 @@ export default function Home() {
               <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
                 <Database className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Memória Perfeita</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">O que é RAG Multimodal em IA?</h3>
               <p className="text-muted-foreground mb-4">
-                RAG Multimodal: lê FAQs, ouve gravações de chamadas e vê fotos de produtos.
+                RAG (Retrieval-Augmented Generation) Multimodal é uma tecnologia de IA que processa múltiplos formatos: 
+                lê documentos PDF e FAQs, ouve gravações de chamadas anteriores, vê fotos de produtos e analisa planilhas. 
+                Isso permite respostas contextuais baseadas em todo histórico do cliente, não apenas texto.
               </p>
-              <div className="text-secondary font-semibold text-sm">Multimodal</div>
+              <div className="text-secondary font-semibold text-sm">Processa Texto + Áudio + Imagem</div>
             </div>
             
             {/* Feature 3 */}
@@ -261,11 +266,12 @@ export default function Home() {
               <div className="w-12 h-12 bg-destructive/10 rounded-lg flex items-center justify-center mb-4">
                 <Cog className="w-6 h-6 text-destructive" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">Automação de Workflows</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">A IA Funciona 24 Horas por Dia?</h3>
               <p className="text-muted-foreground mb-4">
-                Dispara follow-ups e transfere para o agente humano certo com resumo completo.
+                Sim. O BalanceAI opera 24/7 sem interrupções, respondendo clientes à 1h da manhã ou feriados. 
+                Quando necessário, transfere automaticamente para um atendente humano com resumo completo da conversa e contexto do cliente.
               </p>
-              <div className="text-destructive font-semibold text-sm">24/7 Operacional</div>
+              <div className="text-destructive font-semibold text-sm">Disponibilidade 24/7/365</div>
             </div>
           </div>
         </div>
@@ -459,9 +465,10 @@ export default function Home() {
       <section id="diferenciais" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-accent mb-4">Soberania de Dados</h2>
+            <h2 className="text-4xl font-bold text-accent mb-4">O que é Soberania de Dados em IA?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A vantagem decisiva que diferencia o BalanceAI
+              Soberania de dados significa que suas informações permanecem 100% sob seu controle, 
+              hospedadas na SUA infraestrutura, sem compartilhamento com OpenAI, Google ou qualquer terceiro
             </p>
           </div>
           
@@ -472,8 +479,12 @@ export default function Home() {
                   <CheckCircle className="w-4 h-4 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">Conformidade Regulatória</h3>
-                  <p className="text-muted-foreground">Atende LGPD, HIPAA, PCI-DSS e outras regulamentações que exigem dados locais.</p>
+                  <h3 className="font-bold text-foreground mb-2">A IA está em Conformidade com LGPD?</h3>
+                  <p className="text-muted-foreground">
+                    Sim. Como o BalanceAI é auto-hospedado, você mantém propriedade total dos dados. 
+                    Atende LGPD (Brasil), HIPAA (saúde EUA), PCI-DSS (financeiro) e sigilo profissional (advocacia). 
+                    Ideal para setores regulados que não podem usar ChatGPT ou Google Gemini.
+                  </p>
                 </div>
               </div>
               
@@ -482,8 +493,11 @@ export default function Home() {
                   <CheckCircle className="w-4 h-4 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">Controle Total</h3>
-                  <p className="text-muted-foreground">Cliente mantém propriedade e controle completo sobre seus dados e infraestrutura.</p>
+                  <h3 className="font-bold text-foreground mb-2">Quem Tem Acesso aos Meus Dados?</h3>
+                  <p className="text-muted-foreground">
+                    Apenas você. O BalanceAI roda na SUA infraestrutura (servidor próprio ou cloud privada). 
+                    Nenhum dado é enviado para OpenAI, Anthropic ou Google. Você tem controle total sobre backups, acessos e auditoria.
+                  </p>
                 </div>
               </div>
               
@@ -492,22 +506,26 @@ export default function Home() {
                   <CheckCircle className="w-4 h-4 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">Privacidade Garantida</h3>
-                  <p className="text-muted-foreground">Nenhum dado é compartilhado com terceiros ou plataformas externas de IA.</p>
+                  <h3 className="font-bold text-foreground mb-2">Dados Podem Vazar para Outras IAs?</h3>
+                  <p className="text-muted-foreground">
+                    Não. Diferente de soluções como ChatGPT que treinam modelos com dados de clientes, 
+                    o BalanceAI usa modelos open-source (Ollama/Llama) rodando offline. Conversas NUNCA saem do seu servidor.
+                  </p>
                 </div>
               </div>
             </div>
             
             <div className="bg-linear-to-br from-accent/10 to-secondary/10 rounded-lg p-8 border border-border">
               <Shield className="w-16 h-16 text-accent mb-4" />
-              <h3 className="text-2xl font-bold text-foreground mb-4">Auto-Hospedada</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Como Funciona a Auto-Hospedagem?</h3>
               <p className="text-muted-foreground mb-6">
-                Via Ollama e Chatwoot. Seus dados permanecem na sua infraestrutura, garantindo LGPD, HIPAA e PCI-DSS.
+                O BalanceAI instala na sua infraestrutura usando Ollama (modelos IA open-source) e Chatwoot (plataforma de atendimento). 
+                Você escolhe: servidor próprio, AWS privada, Google Cloud ou Azure. Dados NUNCA transitam por servidores terceiros.
               </p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2 text-accent">
                   <CheckCircle className="w-4 h-4" />
-                  <span>Setores: Saúde, Finanças, Direito</span>
+                  <span>Ideal para: Clínicas, Bancos, Escritórios de Advocacia, Fintechs</span>
                 </div>
               </div>
             </div>
