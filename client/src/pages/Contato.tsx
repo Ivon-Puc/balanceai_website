@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
+import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
 
 interface FormData {
   name: string;
@@ -58,6 +60,12 @@ export default function Contato() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Seo
+        title="Contato | BalanceAI"
+        description="Fale com a BalanceAI: agende uma demonstração, tire dúvidas sobre preços e integrações. Atendimento via e-mail e WhatsApp."
+        path="/contato"
+        type="website"
+      />
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
@@ -99,7 +107,7 @@ export default function Contato() {
                 <Mail className="w-6 h-6 text-accent" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Email</h3>
-              <p className="text-muted-foreground">contato@balanceai.com.br</p>
+              <p className="text-muted-foreground">{CONTACT.email}</p>
               <p className="text-sm text-muted-foreground mt-2">Responderemos em até 24 horas</p>
             </div>
 
@@ -108,7 +116,13 @@ export default function Contato() {
                 <Phone className="w-6 h-6 text-accent" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">WhatsApp</h3>
-              <p className="text-muted-foreground">(11) 9 4190-6079</p>
+              <p className="text-muted-foreground">{CONTACT.phoneDisplay}</p>
+              <a
+                href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Gostaria de falar com a BalanceAI.")}
+                className="inline-block mt-3 text-sm bg-[#25D366] text-white px-3 py-2 rounded-lg hover:opacity-90 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Abrir no WhatsApp</a>
               <p className="text-sm text-muted-foreground mt-2">Seg-Sex, 9h às 18h</p>
             </div>
 

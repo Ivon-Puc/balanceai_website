@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Seo from "@/components/Seo";
+import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
 
 interface FAQItem {
   id: string;
@@ -92,6 +94,12 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Seo
+        title="Perguntas Frequentes | BalanceAI"
+        description="Tire suas dúvidas sobre a plataforma BalanceAI: soberania de dados, integrações, preços, ROI e setores atendidos."
+        path="/faq"
+        type="website"
+      />
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
@@ -101,10 +109,16 @@ export default function FAQ() {
             </div>
             <span className="font-bold text-lg text-accent">BalanceAI</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-4">
             <a href="/" className="text-sm hover:text-accent transition">Home</a>
             <a href="/#faq" className="text-sm hover:text-accent transition font-semibold text-accent">FAQ</a>
-            <a href="/" className="text-sm hover:text-accent transition">Contato</a>
+            <a
+              href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Tenho uma dúvida sobre a BalanceAI.")}
+              className="text-sm px-3 py-1.5 rounded-lg bg-[#25D366] text-white hover:opacity-90 transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >WhatsApp</a>
+            <a href="/contato" className="text-sm hover:text-accent transition">Contato</a>
           </nav>
         </div>
       </header>

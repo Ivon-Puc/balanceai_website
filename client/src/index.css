@@ -44,80 +44,89 @@
 }
 
 :root {
-  --primary: rgb(21 154 156); /* #159A9C - Verde-azulado */
-  --primary-foreground: rgb(255 255 255); /* Branco */
-  --sidebar-primary: rgb(21 154 156);
-  --sidebar-primary-foreground: rgb(255 255 255);
-  --chart-1: rgb(21 154 156);
-  --chart-2: rgb(16 185 129);
-  --chart-3: rgb(245 158 11);
-  --chart-4: rgb(21 154 156);
-  --chart-5: rgb(59 130 246);
+  /* Paleta BalanceAI solicitada */
+  /* UI/UX-1: #5F94D9 (azul principal) */
+  /* UI/UX-2: #090B0D (quase preto) */
+  /* UI/UX-3: #5A90BF (azul secundário) */
+  /* UI/UX-4: #385773 (azul petróleo) */
+  /* UI/UX-5: #F2B366 (destaque) */
+
+  --primary: rgb(95 148 217); /* #5F94D9 */
+  --primary-foreground: rgb(255 255 255); /* branco */
+  --accent: rgb(95 148 217); /* #5F94D9 */
+  --accent-foreground: rgb(255 255 255);
+  --secondary: rgb(90 144 191); /* #5A90BF */
+  --secondary-foreground: rgb(255 255 255);
+
+  --foreground: rgb(9 11 13); /* #090B0D */
+  --background: rgb(255 255 255); /* claro para leveza */
+  --card: rgb(249 250 251); /* leve */
+  --card-foreground: rgb(9 11 13);
+  --popover: rgb(249 250 251);
+  --popover-foreground: rgb(9 11 13);
+
+  --muted: rgb(156 163 175);
+  --muted-foreground: rgb(107 114 128);
+  --destructive: rgb(239 68 68);
+  --destructive-foreground: rgb(255 255 255);
+  --border: rgb(229 231 235); /* borda neutra para contraste */
+  --input: rgb(243 244 246);
+  --ring: rgb(56 87 115); /* #385773 */
+
+  --sidebar: rgb(249 250 251);
+  --sidebar-foreground: rgb(9 11 13);
+  --sidebar-accent: rgb(95 148 217);
+  --sidebar-accent-foreground: rgb(255 255 255);
+  --sidebar-border: rgb(229 231 235);
+  --sidebar-ring: rgb(56 87 115);
+
+  --chart-1: rgb(95 148 217); /* primário */
+  --chart-2: rgb(90 144 191);
+  --chart-3: rgb(242 179 102); /* destaque */
+  --chart-4: rgb(56 87 115);
+  --chart-5: rgb(9 11 13);
+
+  --success: rgb(16 185 129);
+  --warning: rgb(245 158 11);
+  --info: rgb(59 130 246);
+
   --radius: 0.65rem;
-  --background: rgb(255 255 255); /* Branco */
-  --foreground: rgb(31 41 55); /* Cinza 900 */
-  --card: rgb(249 250 251); /* Cinza 50 */
-  --card-foreground: rgb(31 41 55); /* Cinza 900 */
-  --popover: rgb(249 250 251); /* Cinza 50 */
-  --popover-foreground: rgb(31 41 55); /* Cinza 900 */
-  --secondary: rgb(222 239 231); /* #DEEFE7 - Mint */
-  --secondary-foreground: rgb(21 154 156); /* Verde-azulado */
-  --muted: rgb(156 163 175); /* Cinza 400 */
-  --muted-foreground: rgb(107 114 128); /* Cinza 500 */
-  --accent: rgb(21 154 156); /* #159A9C - Verde-azulado */
-  --accent-foreground: rgb(255 255 255); /* Branco */
-  --destructive: rgb(239 68 68); /* #ef4444 - Erro */
-  --destructive-foreground: rgb(255 255 255); /* Branco */
-  --border: rgb(229 231 235); /* Cinza 200 */
-  --input: rgb(243 244 246); /* Cinza 100 */
-  --ring: rgb(21 154 156); /* Verde-azulado */
-  --sidebar: rgb(249 250 251); /* Cinza 50 */
-  --sidebar-foreground: rgb(31 41 55); /* Cinza 900 */
-  --sidebar-accent: rgb(21 154 156); /* Verde-azulado */
-  --sidebar-accent-foreground: rgb(255 255 255); /* Branco */
-  --sidebar-border: rgb(229 231 235); /* Cinza 200 */
-  --sidebar-ring: rgb(21 154 156); /* Verde-azulado */
-  --success: rgb(16 185 129); /* #10b981 - Sucesso */
-  --warning: rgb(245 158 11); /* #f59e0b - Aviso */
-  --info: rgb(59 130 246); /* #3b82f6 - Informações */
 }
 
 .dark {
-  --primary: rgb(21 154 156); /* #159A9C - Verde-azulado */
-  --primary-foreground: rgb(255 255 255); /* Branco */
-  --sidebar-primary: rgb(21 154 156);
-  --sidebar-primary-foreground: rgb(255 255 255);
-  --background: rgb(17 24 39); /* Cinza 900 escuro */
-  --foreground: rgb(243 244 246); /* Cinza 100 */
-  --card: rgb(31 41 55); /* Cinza 800 */
-  --card-foreground: rgb(243 244 246); /* Cinza 100 */
-  --popover: rgb(31 41 55); /* Cinza 800 */
-  --popover-foreground: rgb(243 244 246); /* Cinza 100 */
-  --secondary: rgb(222 239 231); /* #DEEFE7 - Mint */
-  --secondary-foreground: rgb(21 154 156); /* Verde-azulado */
-  --muted: rgb(107 114 128); /* Cinza 500 */
-  --muted-foreground: rgb(156 163 175); /* Cinza 400 */
-  --accent: rgb(21 154 156); /* #159A9C - Verde-azulado */
-  --accent-foreground: rgb(255 255 255); /* Branco */
-  --destructive: rgb(239 68 68); /* #ef4444 - Erro */
-  --destructive-foreground: rgb(255 255 255); /* Branco */
-  --border: rgb(55 65 81); /* Cinza 700 */
-  --input: rgb(55 65 81); /* Cinza 700 */
-  --ring: rgb(21 154 156); /* Verde-azulado */
-  --chart-1: rgb(21 154 156);
-  --chart-2: rgb(16 185 129);
-  --chart-3: rgb(245 158 11);
-  --chart-4: rgb(21 154 156);
-  --chart-5: rgb(59 130 246);
-  --sidebar: rgb(31 41 55); /* Cinza 800 */
-  --sidebar-foreground: rgb(243 244 246); /* Cinza 100 */
-  --sidebar-accent: rgb(21 154 156); /* Verde-azulado */
-  --sidebar-accent-foreground: rgb(255 255 255); /* Branco */
-  --sidebar-border: rgb(55 65 81); /* Cinza 700 */
-  --sidebar-ring: rgb(21 154 156); /* Verde-azulado */
-  --success: rgb(16 185 129); /* #10b981 - Sucesso */
-  --warning: rgb(245 158 11); /* #f59e0b - Aviso */
-  --info: rgb(59 130 246); /* #3b82f6 - Informações */
+  --primary: rgb(95 148 217); /* mantém marca */
+  --primary-foreground: rgb(255 255 255);
+  --background: rgb(9 11 13); /* escuro */
+  --foreground: rgb(243 244 246);
+  --card: rgb(31 41 55);
+  --card-foreground: rgb(243 244 246);
+  --popover: rgb(31 41 55);
+  --popover-foreground: rgb(243 244 246);
+  --secondary: rgb(56 87 115);
+  --secondary-foreground: rgb(255 255 255);
+  --muted: rgb(107 114 128);
+  --muted-foreground: rgb(156 163 175);
+  --accent: rgb(95 148 217);
+  --accent-foreground: rgb(255 255 255);
+  --destructive: rgb(239 68 68);
+  --destructive-foreground: rgb(255 255 255);
+  --border: rgb(55 65 81);
+  --input: rgb(55 65 81);
+  --ring: rgb(95 148 217);
+  --chart-1: rgb(95 148 217);
+  --chart-2: rgb(90 144 191);
+  --chart-3: rgb(242 179 102);
+  --chart-4: rgb(56 87 115);
+  --chart-5: rgb(243 244 246);
+  --sidebar: rgb(31 41 55);
+  --sidebar-foreground: rgb(243 244 246);
+  --sidebar-accent: rgb(95 148 217);
+  --sidebar-accent-foreground: rgb(255 255 255);
+  --sidebar-border: rgb(55 65 81);
+  --sidebar-ring: rgb(95 148 217);
+  --success: rgb(16 185 129);
+  --warning: rgb(245 158 11);
+  --info: rgb(59 130 246);
 }
 
 @layer base {

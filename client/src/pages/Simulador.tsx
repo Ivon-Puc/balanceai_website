@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { TrendingUp, Users, DollarSign, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
+import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
 
 interface SimulationResult {
   monthlySetup: number;
@@ -64,6 +66,12 @@ export default function Simulador() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Seo
+        title="Simulador de ROI | BalanceAI"
+        description="Simule investimento, economia e payback da plataforma BalanceAI. Ajuste variáveis e estime o ROI anual."
+        path="/simulador"
+        type="website"
+      />
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
@@ -279,12 +287,20 @@ export default function Simulador() {
                 </div>
 
                 {/* CTA */}
-                <a
-                  href="/contato"
-                  className="block w-full"
-                >
+                <a href="/contato" className="block w-full">
                   <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-12 text-base">
                     Agendar Demonstração
+                  </Button>
+                </a>
+
+                <a
+                  href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Acabei de simular o ROI e quero uma demonstração do BalanceAI.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <Button className="w-full bg-[#25D366] text-white hover:opacity-90 h-12 text-base">
+                    Falar no WhatsApp
                   </Button>
                 </a>
               </div>

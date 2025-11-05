@@ -1,10 +1,47 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Database, Cog, Shield, CheckCircle } from "lucide-react";
+import { ArrowRight, Zap, Database, Cog, Shield, CheckCircle, Phone } from "lucide-react";
 import { Link } from "wouter";
+import Seo from "@/components/Seo";
+import { buildWhatsAppLink, CONTACT } from "@/lib/utils";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Seo
+        title="BalanceAI: IA para Atendimento 24/7 | Soberania de Dados"
+        description="Plataforma de IA para atendimento ao cliente com soberania de dados. Qualifique leads, automatize respostas e aumente vendas em 40%."
+        path="/"
+        type="website"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "BalanceAI",
+            url: typeof window !== "undefined" ? window.location.origin : "https://balanceai.com.br",
+            email: CONTACT.email,
+            telephone: CONTACT.phoneE164,
+            contactPoint: [{
+              "@type": "ContactPoint",
+              telephone: CONTACT.phoneE164,
+              contactType: "customer service",
+              areaServed: "BR",
+              availableLanguage: ["Portuguese", "English"],
+            }],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "BalanceAI",
+            applicationCategory: "CustomerServiceApplication",
+            operatingSystem: "Web",
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "BRL",
+              price: "249",
+            },
+          },
+        ]}
+      />
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
@@ -14,13 +51,22 @@ export default function Home() {
             </div>
             <span className="font-bold text-lg text-accent">BalanceAI</span>
           </div>
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-4">
             <a href="/#solucao" className="text-sm hover:text-accent transition">Solução</a>
             <a href="/#diferenciais" className="text-sm hover:text-accent transition">Diferenciais</a>
             <a href="/#investimento" className="text-sm hover:text-accent transition">Investimento</a>
             <a href="/blog" className="text-sm hover:text-accent transition">Blog</a>
             <a href="/faq" className="text-sm hover:text-accent transition">FAQ</a>
             <a href="/simulador" className="text-sm hover:text-accent transition">Simulador</a>
+            <a
+              href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Gostaria de saber mais sobre a BalanceAI.")}
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white hover:opacity-90 px-3 py-2 rounded-lg text-sm font-medium transition"
+              aria-label="WhatsApp"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Phone className="w-4 h-4" /> WhatsApp
+            </a>
             <a href="/contato" className="bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-2 rounded-lg text-sm font-medium transition">Contato</a>
           </nav>
         </div>
@@ -50,12 +96,21 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
-              Solicitar Demo <ArrowRight className="w-4 h-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-border hover:bg-card">
-              Saiba Mais
-            </Button>
+            <a
+              href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Quero agendar uma demonstração do BalanceAI.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex"
+            >
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
+                Solicitar Demo <ArrowRight className="w-4 h-4" />
+              </Button>
+            </a>
+            <a href="/contato" className="inline-flex">
+              <Button size="lg" variant="outline" className="border-border hover:bg-card">
+                Saiba Mais
+              </Button>
+            </a>
           </div>
           
           <div className="grid grid-cols-3 gap-8 pt-12 w-full max-w-2xl">
@@ -172,7 +227,7 @@ export default function Home() {
               <Shield className="w-16 h-16 text-accent mb-4" />
               <h3 className="text-2xl font-bold text-foreground mb-4">Auto-Hospedada</h3>
               <p className="text-muted-foreground mb-6">
-                Via Ollama e Chatwoot. Seus dados permanecem na sua infraestrutura, não em servidores de terceiros.
+                Via Ollama e Chatwoot. Seus dados permanecem na sua infraestrutura, garantindo LGPD, HIPAA e PCI-DSS.
               </p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2 text-accent">
@@ -248,9 +303,16 @@ export default function Home() {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Agende uma demonstração técnica do MVP e conheça como o BalanceAI pode transformar seu atendimento.
           </p>
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
-            Solicitar Demonstração <ArrowRight className="w-4 h-4" />
-          </Button>
+          <a
+            href={buildWhatsAppLink(CONTACT.phoneE164, "Olá! Quero agendar uma demonstração do BalanceAI.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex"
+          >
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
+              Solicitar Demonstração <ArrowRight className="w-4 h-4" />
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -265,7 +327,7 @@ export default function Home() {
                 </div>
                 <span className="font-bold text-accent">BalanceAI</span>
               </div>
-              <p className="text-sm text-muted-foreground">Inteligência de atendimento para empresas modernas.</p>
+              <p className="text-sm text-muted-foreground">Plataforma de IA para atendimento 24/7 com soberania de dados.</p>
             </div>
             <div>
               <h4 className="font-bold mb-4 text-foreground">Produto</h4>
@@ -292,8 +354,12 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground space-y-2">
             <p>&copy; 2025 BalanceAI. Todos os direitos reservados.</p>
+            <p>
+              Contato: <a className="text-accent hover:underline" href="mailto:contato@balanceai.com.br">contato@balanceai.com.br</a> ·
+              <a className="text-accent hover:underline ml-1" href={buildWhatsAppLink(CONTACT.phoneE164)} target="_blank" rel="noopener noreferrer">WhatsApp {CONTACT.phoneDisplay}</a>
+            </p>
           </div>
         </div>
       </footer>

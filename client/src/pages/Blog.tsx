@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Calendar, User, ArrowRight } from "lucide-react";
+import Seo from "@/components/Seo";
+import { CONTACT } from "@/lib/utils";
 
 interface BlogPost {
   id: string;
@@ -83,6 +85,12 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Seo
+        title="Blog BalanceAI | IA, Atendimento e Transformação Digital"
+        description="Insights sobre IA aplicada a atendimento, soberania de dados, ROI e automação. Conteúdo prático e atualizado."
+        path="/blog"
+        type="website"
+      />
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container flex items-center justify-between h-16">
@@ -169,7 +177,7 @@ export default function Blog() {
                         {new Date(post.date).toLocaleDateString("pt-BR")}
                       </div>
                     </div>
-                    <button className="text-accent hover:text-accent/80 transition">
+                    <button className="text-accent hover:text-accent/80 transition" aria-label={`Ler mais sobre ${post.title}`}>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
