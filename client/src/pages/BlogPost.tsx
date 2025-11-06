@@ -1,7 +1,8 @@
 import { useRoute } from "wouter";
-import { Calendar, User, ArrowLeft, Share2 } from "lucide-react";
+import { Calendar, User, ArrowLeft, Share2, ArrowUp, Link as LinkIcon, Check } from "lucide-react";
 import { Link } from "wouter";
 import { marked, type TokensList, type Tokens } from "marked";
+import { useState, useEffect } from "react";
 import Seo from "@/components/Seo";
 import Header from "@/components/Header";
 import { getPostBySlug } from "@/data/blogPosts";
@@ -58,6 +59,44 @@ function buildTocFromTokens(tokens: TokensList): TocItem[] {
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
   const post = params?.slug ? getPostBySlug(params.slug) : undefined;
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [copiedId, setCopiedId] = useState<string>("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Scrollspy: detecta seção ativa durante scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      // Mostra botão "voltar ao topo" após 300px
+      setShowScrollTop(window.scrollY > 300);
+
+      // Detecta heading visível
+      const headings = document.querySelectorAll("h2[id], h3[id], h4[id]");
+      let current = "";
+      headings.forEach((heading) => {
+        const rect = heading.getBoundingClientRect();
+        if (rect.top <= 120 && rect.top >= -rect.height) {
+          current = heading.id;
+        }
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // inicial
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const copyLinkToClipboard = (id: string) => {
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(""), 2000);
+    });
+  };
 
   if (!post) {
     return (
@@ -100,7 +139,25 @@ export default function BlogPost() {
           if (level === 4) { h4 += 1; }
           const number = level === 2 ? `${h2}` : level === 3 ? `${h2}.${h3}` : `${h2}.${h3}.${h4}`;
           const id = `${slugify(text)}-${number.replace(/\./g, "-")}`;
-          return `<h${level} id="${id}"><span class=\"mr-2 text-muted-foreground\">${number}</span>${text}</h${level}>`;
+          return `<h${level} id="${id}" class="group relative">
+            <span class="mr-2 text-muted-foreground">${number}</span>${text}
+            <button 
+              onclick="(function(){
+                const url = window.location.origin + window.location.pathname + '#${id}';
+                navigator.clipboard.writeText(url);
+                const btn = event.target;
+                const icon = btn.querySelector('svg');
+                icon.innerHTML = '<path d=\\"M20 6L9 17l-5-5\\"/>';
+                setTimeout(() => icon.innerHTML = '<path d=\\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\\"/><path d=\\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\\"/>', 2000);
+              })()"
+              class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center justify-center w-6 h-6 text-muted-foreground hover:text-accent"
+              aria-label="Copiar link"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </button>
+          </h${level}>`;
         }
         return `<h${level} id="${slugify(text)}">${text}</h${level}>`;
       },
@@ -190,7 +247,9 @@ export default function BlogPost() {
                     <li key={item.id} className="text-muted-foreground">
                       <a
                         href={`#${item.id}`}
-                        className="hover:text-accent transition"
+                        className={`hover:text-accent transition ${
+                          activeSection === item.id ? "text-accent font-semibold" : ""
+                        }`}
                         style={{ paddingLeft: `${(item.level - 2) * 16}px` }}
                       >
                         <span className="mr-2 text-foreground/70">{item.number}</span>
@@ -262,6 +321,17 @@ export default function BlogPost() {
           <p>&copy; 2025 BalanceAI. Todos os direitos reservados.</p>
         </div>
       </footer>
+
+      {/* Botão Voltar ao Topo */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-3 bg-accent text-accent-foreground rounded-full shadow-lg hover:bg-accent/90 transition-all z-50"
+          aria-label="Voltar ao topo"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
     </div>
   );
 }
