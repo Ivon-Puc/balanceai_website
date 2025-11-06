@@ -194,23 +194,23 @@ export default function BlogPost() {
         </div>
       </div>
 
-      {/* Article Header */}
+      {/* Article */}
       <article className="flex-1">
-        <header className="py-16 border-b border-border relative overflow-hidden">
+        <header className="py-12 border-b border-border relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
           <div className="container relative z-10 max-w-4xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-sm font-semibold text-accent uppercase bg-accent/10 px-4 py-1.5 rounded-full">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-sm font-semibold text-accent uppercase bg-accent/10 px-3 py-1 rounded-full">
                 {post.category}
               </span>
               <span className="text-sm text-muted-foreground">{post.readTime} de leitura</span>
             </div>
             
-            <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
               {post.title}
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-6">
               {post.excerpt}
             </p>
 
@@ -245,23 +245,23 @@ export default function BlogPost() {
         </header>
 
         {/* Article Content */}
-        <section className="py-16">
+        <section className="py-12">
           <div className="container max-w-4xl">
             {/* Sumário (TOC) */}
             {tocItems.length > 0 && (
-              <div className="mb-10 p-5 bg-card border border-border rounded-lg">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-accent">Sumário</h2>
-                <ul className="mt-3 space-y-2 text-sm">
+              <div className="mb-8 p-4 bg-card border border-border rounded-lg">
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-accent mb-3">Sumário</h2>
+                <ul className="space-y-1.5 text-sm">
                   {tocItems.map((item) => (
                     <li key={item.id} className="text-muted-foreground">
                       <a
                         href={`#${item.id}`}
-                        className={`hover:text-accent transition ${
+                        className={`block py-1 hover:text-accent transition ${
                           activeSection === item.id ? "text-accent font-semibold" : ""
                         }`}
-                        style={{ paddingLeft: `${(item.level - 2) * 16}px` }}
+                        style={{ paddingLeft: `${(item.level - 2) * 12}px` }}
                       >
-                        <span className="mr-2 text-foreground/70">{item.number}</span>
+                        <span className="mr-2 text-foreground/70 text-xs">{item.number}</span>
                         {item.text}
                       </a>
                     </li>
@@ -271,24 +271,24 @@ export default function BlogPost() {
             )}
             <div 
               className="prose prose-lg max-w-none
-                prose-headings:text-foreground prose-headings:font-bold
-                prose-h1:text-4xl prose-h1:mt-16 prose-h1:mb-10 prose-h1:text-accent
-                prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-10 prose-h2:pt-8 prose-h2:border-b prose-h2:border-border
-                prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-8 prose-h3:pt-6 prose-h3:border-b prose-h3:border-border
-                prose-h4:text-xl prose-h4:mt-10 prose-h4:mb-6
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-8 prose-p:mt-6
-                prose-strong:text-accent prose-strong:font-semibold prose-strong:block prose-strong:mb-4 prose-strong:mt-6
-                prose-b:text-accent prose-b:font-semibold prose-b:block prose-b:mb-4 prose-b:mt-6
-                prose-ul:my-8 prose-ul:text-muted-foreground
-                prose-ol:my-8 prose-ol:text-muted-foreground
-                prose-li:my-4 prose-li:leading-relaxed
+                prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-tight
+                prose-h1:text-3xl prose-h1:mt-8 prose-h1:mb-6 prose-h1:text-accent
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-6 prose-h2:pt-4 prose-h2:border-b prose-h2:border-border
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:pt-3 prose-h3:border-b prose-h3:border-border/50
+                prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 prose-p:mt-0
+                prose-strong:text-accent prose-strong:font-semibold prose-strong:inline
+                prose-b:text-accent prose-b:font-semibold prose-b:inline
+                prose-ul:my-4 prose-ul:text-muted-foreground prose-ul:pl-4
+                prose-ol:my-4 prose-ol:text-muted-foreground prose-ol:pl-4
+                prose-li:my-1 prose-li:leading-relaxed
                 prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-                prose-table:w-full prose-table:border-collapse prose-table:my-10
-                prose-th:border prose-th:border-border prose-th:bg-accent/10 prose-th:p-3 prose-th:text-left prose-th:font-semibold
-                prose-td:border prose-td:border-border prose-td:p-3
-                prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-                prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8
-                prose-hr:my-16 prose-hr:border-border
+                prose-table:w-full prose-table:border-collapse prose-table:my-6
+                prose-th:border prose-th:border-border prose-th:bg-accent/10 prose-th:p-2 prose-th:text-left prose-th:font-semibold prose-th:text-sm
+                prose-td:border prose-td:border-border prose-td:p-2 prose-td:text-sm
+                prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-6
+                prose-hr:my-8 prose-hr:border-border
               "
               dangerouslySetInnerHTML={{ __html: marked(post.content) }}
             />
@@ -296,15 +296,15 @@ export default function BlogPost() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 border-t border-border bg-linear-to-r from-accent/10 to-secondary/10">
+        <section className="py-12 border-t border-border bg-linear-to-r from-accent/10 to-secondary/10">
           <div className="container max-w-4xl text-center">
-            <h2 className="text-3xl font-bold text-accent mb-4">
+            <h2 className="text-2xl font-bold text-accent mb-3">
               Gostou deste conteúdo?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base text-muted-foreground mb-6">
               Descubra como o BalanceAI pode transformar o atendimento da sua empresa.
             </p>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href={buildWhatsAppLink(CONTACT.phoneE164, `Olá! Li o artigo "${post.title}" e gostaria de saber mais sobre o BalanceAI.`)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-lg font-semibold hover:opacity-90 transition"
@@ -325,7 +325,7 @@ export default function BlogPost() {
       </article>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50 py-12">
+      <footer className="border-t border-border bg-card/50 py-8">
         <div className="container text-center text-sm text-muted-foreground">
           <p>&copy; 2025 BalanceAI. Todos os direitos reservados.</p>
         </div>
