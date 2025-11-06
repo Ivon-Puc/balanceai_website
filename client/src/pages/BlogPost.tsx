@@ -122,34 +122,32 @@ export default function BlogPost() {
     window.open(buildWhatsAppLink(CONTACT.phoneE164, `${text}\n\n${url}`), '_blank');
   };
 
-  // Gera TOC + configura renderer com numeração e âncoras
+  // Gera TOC a partir dos tokens
   const tokens = marked.lexer(post.content);
   const tocItems = buildTocFromTokens(tokens);
 
-  // Renderer com numeração automática em h2-h4 e ids estáveis
-  let h2 = 0, h3 = 0, h4 = 0;
-  marked.use({
-    renderer: {
-      heading(token) {
-        const level = (token as Tokens.Heading).depth;
-        const text = (token as Tokens.Heading).text;
+  // Hook para adicionar numeração e botões após renderização
+  useEffect(() => {
+    const addNumberingAndButtons = () => {
+      let h2 = 0, h3 = 0, h4 = 0;
+      
+      // Adiciona IDs e numeração aos headings
+      document.querySelectorAll('h2, h3, h4').forEach((heading) => {
+        const level = parseInt(heading.tagName.charAt(1));
         if (level >= 2 && level <= 4) {
           if (level === 2) { h2 += 1; h3 = 0; h4 = 0; }
           if (level === 3) { h3 += 1; h4 = 0; }
           if (level === 4) { h4 += 1; }
+          
           const number = level === 2 ? `${h2}` : level === 3 ? `${h2}.${h3}` : `${h2}.${h3}.${h4}`;
-          const id = `${slugify(text)}-${number.replace(/\./g, "-")}`;
-          return `<h${level} id="${id}" class="group relative">
-            <span class="mr-2 text-muted-foreground">${number}</span>${text}
+          const id = `${slugify(heading.textContent || '')}-${number.replace(/\./g, "-")}`;
+          
+          heading.id = id;
+          heading.className = 'group relative';
+          heading.innerHTML = `
+            <span class="mr-2 text-muted-foreground">${number}</span>${heading.textContent}
             <button 
-              onclick="(function(){
-                const url = window.location.origin + window.location.pathname + '#${id}';
-                navigator.clipboard.writeText(url);
-                const btn = event.target;
-                const icon = btn.querySelector('svg');
-                icon.innerHTML = '<path d=\\"M20 6L9 17l-5-5\\"/>';
-                setTimeout(() => icon.innerHTML = '<path d=\\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\\"/><path d=\\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\\"/>', 2000);
-              })()"
+              onclick="copyLinkToSection('${id}')"
               class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center justify-center w-6 h-6 text-muted-foreground hover:text-accent"
               aria-label="Copiar link"
             >
@@ -157,12 +155,23 @@ export default function BlogPost() {
                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
               </svg>
             </button>
-          </h${level}>`;
+          `;
         }
-        return `<h${level} id="${slugify(text)}">${text}</h${level}>`;
-      },
-    },
-  });
+      });
+    };
+
+    // Adiciona função global para copiar link
+    (window as any).copyLinkToSection = (id: string) => {
+      const url = `${window.location.origin}${window.location.pathname}#${id}`;
+      navigator.clipboard.writeText(url).then(() => {
+        // Feedback visual temporário seria adicionado aqui
+      });
+    };
+
+    // Executa após um pequeno delay para garantir que o conteúdo foi renderizado
+    const timer = setTimeout(addNumberingAndButtons, 100);
+    return () => clearTimeout(timer);
+  }, [post.content]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
