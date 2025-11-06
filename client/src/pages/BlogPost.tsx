@@ -1,7 +1,7 @@
 import { useRoute } from "wouter";
 import { Calendar, User, ArrowLeft, Share2 } from "lucide-react";
 import { Link } from "wouter";
-import { marked } from "marked";
+import { marked, type TokensList, type Tokens } from "marked";
 import Seo from "@/components/Seo";
 import Header from "@/components/Header";
 import { getPostBySlug } from "@/data/blogPosts";
@@ -12,6 +12,48 @@ marked.setOptions({
   breaks: true,
   gfm: true,
 });
+
+// Utils simples para gerar slugs estáveis (âncoras)
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove acentos
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+type TocItem = { id: string; text: string; level: number; number: string };
+
+function buildTocFromTokens(tokens: TokensList): TocItem[] {
+  const toc: TocItem[] = [];
+  let h2 = 0;
+  let h3 = 0;
+  let h4 = 0;
+
+  tokens.forEach((tk) => {
+    if ((tk as Tokens.Heading).type === "heading") {
+      const heading = tk as Tokens.Heading;
+      const level = heading.depth;
+      if (level >= 2 && level <= 4) {
+        if (level === 2) {
+          h2 += 1; h3 = 0; h4 = 0;
+        } else if (level === 3) {
+          h3 += 1; h4 = 0;
+        } else if (level === 4) {
+          h4 += 1;
+        }
+        const number = level === 2 ? `${h2}` : level === 3 ? `${h2}.${h3}` : `${h2}.${h3}.${h4}`;
+        const base = slugify(heading.text);
+        const id = `${base}-${number.replace(/\./g, "-")}`;
+        toc.push({ id, text: heading.text, level, number });
+      }
+    }
+  });
+  return toc;
+}
 
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
@@ -40,6 +82,30 @@ export default function BlogPost() {
     const text = `${post.title} - ${post.excerpt}`;
     window.open(buildWhatsAppLink(CONTACT.phoneE164, `${text}\n\n${url}`), '_blank');
   };
+
+  // Gera TOC + configura renderer com numeração e âncoras
+  const tokens = marked.lexer(post.content);
+  const tocItems = buildTocFromTokens(tokens);
+
+  // Renderer com numeração automática em h2-h4 e ids estáveis
+  let h2 = 0, h3 = 0, h4 = 0;
+  marked.use({
+    renderer: {
+      heading(token) {
+        const level = (token as Tokens.Heading).depth;
+        const text = (token as Tokens.Heading).text;
+        if (level >= 2 && level <= 4) {
+          if (level === 2) { h2 += 1; h3 = 0; h4 = 0; }
+          if (level === 3) { h3 += 1; h4 = 0; }
+          if (level === 4) { h4 += 1; }
+          const number = level === 2 ? `${h2}` : level === 3 ? `${h2}.${h3}` : `${h2}.${h3}.${h4}`;
+          const id = `${slugify(text)}-${number.replace(/\./g, "-")}`;
+          return `<h${level} id="${id}"><span class=\"mr-2 text-muted-foreground\">${number}</span>${text}</h${level}>`;
+        }
+        return `<h${level} id="${slugify(text)}">${text}</h${level}>`;
+      },
+    },
+  });
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -115,6 +181,26 @@ export default function BlogPost() {
         {/* Article Content */}
         <section className="py-16">
           <div className="container max-w-4xl">
+            {/* Sumário (TOC) */}
+            {tocItems.length > 0 && (
+              <div className="mb-10 p-5 bg-card border border-border rounded-lg">
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-accent">Sumário</h2>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {tocItems.map((item) => (
+                    <li key={item.id} className="text-muted-foreground">
+                      <a
+                        href={`#${item.id}`}
+                        className="hover:text-accent transition"
+                        style={{ paddingLeft: `${(item.level - 2) * 16}px` }}
+                      >
+                        <span className="mr-2 text-foreground/70">{item.number}</span>
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div 
               className="prose prose-lg max-w-none
                 prose-headings:text-foreground prose-headings:font-bold
