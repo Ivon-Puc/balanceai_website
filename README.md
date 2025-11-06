@@ -88,22 +88,23 @@ O site estará disponível em `http://localhost:5173`
 
 ## 🎨 Paleta de Cores
 
-| Elemento | Cor | Código |
-|----------|-----|--------|
-| Primária | Verde-azulado | #159A9C |
-| Fundo | Branco | #FFFFFF |
-| Fundo Sutil | Cinza 50 | #F3F4F6 |
-| Destaque | Mint | #DEEFE7 |
-| Sucesso | Verde | #10B981 |
-| Aviso | Laranja | #F59E0B |
-| Erro | Vermelho | #EF4444 |
-| Informações | Azul | #3B82F6 |
+| Elemento    | Cor           | Código  |
+| ----------- | ------------- | ------- |
+| Primária    | Verde-azulado | #159A9C |
+| Fundo       | Branco        | #FFFFFF |
+| Fundo Sutil | Cinza 50      | #F3F4F6 |
+| Destaque    | Mint          | #DEEFE7 |
+| Sucesso     | Verde         | #10B981 |
+| Aviso       | Laranja       | #F59E0B |
+| Erro        | Vermelho      | #EF4444 |
+| Informações | Azul          | #3B82F6 |
 
 ## 📄 Páginas
 
 ### Home (`/`)
 
 Página principal com:
+
 - Hero section com proposta de valor
 - Três capacidades principais (Resposta Imediata, Memória Perfeita, Automação)
 - Seção de Soberania de Dados
@@ -113,6 +114,7 @@ Página principal com:
 ### FAQ (`/faq`)
 
 Página de perguntas frequentes com:
+
 - 12 perguntas organizadas em 5 categorias
 - Filtro por categoria
 - Accordion expansível
@@ -165,15 +167,15 @@ Os arquivos otimizados estarão em `dist/`
 
    **Necessárias:**
    - `VITE_CLOUDINARY_CLOUD_NAME` = `ivon-matos-analista`
-   
+
    **Opcionais (Branding):**
    - `VITE_APP_TITLE` = `BalanceAI - IA para Atendimento`
    - `VITE_APP_LOGO` = `/favicon.png`
-   
+
    **Opcionais (Analytics):**
    - `VITE_ANALYTICS_ENDPOINT` = URL do seu Umami/Analytics
    - `VITE_ANALYTICS_WEBSITE_ID` = UUID do seu site
-   
+
    **Avançadas (se necessário):**
    - `VITE_OAUTH_PORTAL_URL` = URL de autenticação externa
    - `VITE_APP_ID` = ID da aplicação
@@ -240,11 +242,11 @@ pnpm test
 - Sem dependências desnecessárias
 - HTTPS recomendado em produção
 
-## 📞 Contato
+## 📞 Contato e Suporte
 
 - **Email**: contato@balanceai.com.br
-- **WhatsApp**: (11) 9 4190-6079
-- **Website**: www.balanceai.com.br
+- **GitHub**: Issues neste repositório
+- **Website**: https://balanceai.com.br
 
 ## 📄 Licença
 
